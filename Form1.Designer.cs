@@ -7,6 +7,7 @@ namespace ImageListDecoder
         private System.Windows.Forms.Button btnDecode;
         private System.Windows.Forms.Button btnEncode;
         private System.Windows.Forms.Button btnEncodeStandard;
+        private System.Windows.Forms.Button btnEncodeIcon;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.ListView lvImages;
@@ -35,6 +36,7 @@ namespace ImageListDecoder
             this.btnDecode = new System.Windows.Forms.Button();
             this.btnEncode = new System.Windows.Forms.Button();
             this.btnEncodeStandard = new System.Windows.Forms.Button();
+            this.btnEncodeIcon = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.lvImages = new System.Windows.Forms.ListView();
@@ -141,6 +143,16 @@ namespace ImageListDecoder
             this.btnEncodeStandard.UseVisualStyleBackColor = true;
             this.btnEncodeStandard.Click += new System.EventHandler(this.btnEncodeStandard_Click);
             // 
+            // btnEncodeIcon
+            // 
+            this.btnEncodeIcon.Location = new System.Drawing.Point(418, 158);
+            this.btnEncodeIcon.Name = "btnEncodeIcon";
+            this.btnEncodeIcon.Size = new System.Drawing.Size(200, 30);
+            this.btnEncodeIcon.TabIndex = 12;
+            this.btnEncodeIcon.Text = "Codificar como Icono (.ico)";
+            this.btnEncodeIcon.UseVisualStyleBackColor = true;
+            this.btnEncodeIcon.Click += new System.EventHandler(this.btnEncodeIcon_Click);
+            // 
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(12, 476);
@@ -164,7 +176,7 @@ namespace ImageListDecoder
             // lblDecoded
             // 
             this.lblDecoded.AutoSize = true;
-            this.lblDecoded.Location = new System.Drawing.Point(418, 160);
+            this.lblDecoded.Location = new System.Drawing.Point(418, 195);
             this.lblDecoded.Name = "lblDecoded";
             this.lblDecoded.Size = new System.Drawing.Size(123, 13);
             this.lblDecoded.TabIndex = 7;
@@ -172,9 +184,9 @@ namespace ImageListDecoder
             // 
             // lvImages
             // 
-            this.lvImages.Location = new System.Drawing.Point(418, 176);
+            this.lvImages.Location = new System.Drawing.Point(418, 211);
             this.lvImages.Name = "lvImages";
-            this.lvImages.Size = new System.Drawing.Size(200, 294);
+            this.lvImages.Size = new System.Drawing.Size(200, 259);
             this.lvImages.TabIndex = 3;
             this.lvImages.UseCompatibleStateImageBehavior = false;
             this.lvImages.View = System.Windows.Forms.View.LargeIcon;
@@ -204,6 +216,7 @@ namespace ImageListDecoder
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 515);
             this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.btnEncodeIcon);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.btnEncodeStandard);
             this.Controls.Add(this.btnClear);

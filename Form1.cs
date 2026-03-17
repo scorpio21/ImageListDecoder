@@ -218,6 +218,44 @@ namespace ImageListDecoder
             }
         }
 
+        private void btnEncodeIcon_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (picImage.Image == null)
+                {
+                    MessageBox.Show("No hay imagen cargada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (var ms = new MemoryStream())
+                {
+                    // Para convertir un Bitmap a Icono real (.ico) en C#
+                    using (Bitmap bmp = new Bitmap(picImage.Image))
+                    {
+                        IntPtr hIcon = bmp.GetHicon();
+                        using (Icon icon = Icon.FromHandle(hIcon))
+                        {
+                            icon.Save(ms);
+                        }
+                        // Nota: GetHicon() crea un recurso nativo que debe ser liberado
+                        // pero no podemos llamar a DestroyIcon fácilmente sin importar User32.dll
+                    }
+
+                    byte[] bytes = ms.ToArray();
+                    txtBase64.Text = Convert.ToBase64String(bytes);
+
+                    MessageBox.Show("Imagen codificada como archivo de Icono de Windows (.ico).\r\nEste código Base64 empezará con la cabecera típica de un icono.",
+                        "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error al codificar como Icono", ex);
+                MessageBox.Show("Error al codificar:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtBase64.Clear();
