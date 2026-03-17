@@ -1,0 +1,9 @@
+# Visual Studio .gitignore
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+error_log.txt
